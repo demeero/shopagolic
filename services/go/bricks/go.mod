@@ -1,4 +1,4 @@
-module github.com/demeero/shopagolic/bricks
+module github.com/demeero/shopagolic/services/go/bricks
 
 go 1.18
 
