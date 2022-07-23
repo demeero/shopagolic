@@ -1,4 +1,4 @@
-module github.com/demeero/shopagolic/proto/gen/go
+module github.com/demeero/shopagolic/services/proto/gen/go
 
 go 1.18
 

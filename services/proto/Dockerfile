@@ -20,4 +20,4 @@ RUN export PATH=$PATH:$(go env GOPATH)/bin && buf lint
 
 FROM base as gen
 RUN export PATH=$PATH:$(go env GOPATH)/bin && buf generate
-RUN cd gen/go && go mod init github.com/demeero/shopagolic/proto/gen/go && go mod tidy
+RUN cd gen/go && go mod init github.com/demeero/shopagolic/services/proto/gen/go && go mod tidy

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package shopagolic.productcatalog.v1beta1;
 
-option go_package = "github.com/demeero/shopagolic/proto/gen/go/shopagolic/productcatalog/v1beta1";
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/productcatalog/v1beta1";
 
 import "google/protobuf/timestamp.proto";
 import "shopagolic/money/v1/money.proto";

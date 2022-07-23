@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package shopagolic.money.v1;
 
-option go_package = "github.com/demeero/shopagolic/proto/gen/go/shopagolic/money/v1";
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/money/v1";
 
 // Represents an amount of money with its currency type.
 message Money {
