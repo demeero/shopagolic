@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package shopagolic.productcatalog.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/proto/gen/go/shopagolic/productcatalog/v1beta1";
+
+import "google/protobuf/timestamp.proto";
+import "shopagolic/money/v1/money.proto";
+
+service ProductCatalogService {
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse) {}
+  rpc SearchProducts(SearchProductsRequest) returns (SearchProductsResponse) {}
+}
+
+enum SortKey {
+  SORT_KEY_UNSPECIFIED = 0;
+  SORT_KEY_NAME = 1;
+  SORT_KEY_CREATED_AT = 2;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string picture = 4;
+  money.v1.Money price = 5;
+  repeated string categories = 6;
+  google.protobuf.Timestamp created_at = 7;
+}
+
+message ListProductsRequest {
+  int32 page_size = 2;
+  string page_token = 3;
+  SortKey sort_key = 4;
+  bool asc = 5;
+}
+
+message ListProductsResponse {
+  repeated Product products = 1;
+  string next_page_token = 2;
+}
+
+message GetProductRequest {
+  string id = 1;
+}
+
+message GetProductResponse {
+  Product product = 1;
+}
+
+message SearchProductsRequest {
+  string query = 1;
+}
+
+message SearchProductsResponse {
+  repeated Product products = 1;
+}
