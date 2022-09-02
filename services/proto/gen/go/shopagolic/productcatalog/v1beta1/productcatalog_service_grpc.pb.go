@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProductCatalogServiceClient interface {
+	CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error)
 	ListProducts(ctx context.Context, in *ListProductsRequest, opts ...grpc.CallOption) (*ListProductsResponse, error)
 	GetProduct(ctx context.Context, in *GetProductRequest, opts ...grpc.CallOption) (*GetProductResponse, error)
 	SearchProducts(ctx context.Context, in *SearchProductsRequest, opts ...grpc.CallOption) (*SearchProductsResponse, error)
@@ -33,6 +34,15 @@ type productCatalogServiceClient struct {
 
 func NewProductCatalogServiceClient(cc grpc.ClientConnInterface) ProductCatalogServiceClient {
 	return &productCatalogServiceClient{cc}
+}
+
+func (c *productCatalogServiceClient) CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error) {
+	out := new(CreateProductResponse)
+	err := c.cc.Invoke(ctx, "/shopagolic.productcatalog.v1beta1.ProductCatalogService/CreateProduct", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *productCatalogServiceClient) ListProducts(ctx context.Context, in *ListProductsRequest, opts ...grpc.CallOption) (*ListProductsResponse, error) {
@@ -66,6 +76,7 @@ func (c *productCatalogServiceClient) SearchProducts(ctx context.Context, in *Se
 // All implementations must embed UnimplementedProductCatalogServiceServer
 // for forward compatibility
 type ProductCatalogServiceServer interface {
+	CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error)
 	ListProducts(context.Context, *ListProductsRequest) (*ListProductsResponse, error)
 	GetProduct(context.Context, *GetProductRequest) (*GetProductResponse, error)
 	SearchProducts(context.Context, *SearchProductsRequest) (*SearchProductsResponse, error)
@@ -76,6 +87,9 @@ type ProductCatalogServiceServer interface {
 type UnimplementedProductCatalogServiceServer struct {
 }
 
+func (UnimplementedProductCatalogServiceServer) CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProduct not implemented")
+}
 func (UnimplementedProductCatalogServiceServer) ListProducts(context.Context, *ListProductsRequest) (*ListProductsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListProducts not implemented")
 }
@@ -96,6 +110,24 @@ type UnsafeProductCatalogServiceServer interface {
 
 func RegisterProductCatalogServiceServer(s grpc.ServiceRegistrar, srv ProductCatalogServiceServer) {
 	s.RegisterService(&ProductCatalogService_ServiceDesc, srv)
+}
+
+func _ProductCatalogService_CreateProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProductCatalogServiceServer).CreateProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/shopagolic.productcatalog.v1beta1.ProductCatalogService/CreateProduct",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProductCatalogServiceServer).CreateProduct(ctx, req.(*CreateProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _ProductCatalogService_ListProducts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -159,6 +191,10 @@ var ProductCatalogService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "shopagolic.productcatalog.v1beta1.ProductCatalogService",
 	HandlerType: (*ProductCatalogServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateProduct",
+			Handler:    _ProductCatalogService_CreateProduct_Handler,
+		},
 		{
 			MethodName: "ListProducts",
 			Handler:    _ProductCatalogService_ListProducts_Handler,

@@ -8,6 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "shopagolic/money/v1/money.proto";
 
 service ProductCatalogService {
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
   rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
   rpc GetProduct(GetProductRequest) returns (GetProductResponse) {}
   rpc SearchProducts(SearchProductsRequest) returns (SearchProductsResponse) {}
@@ -27,6 +28,18 @@ message Product {
   money.v1.Money price = 5;
   repeated string categories = 6;
   google.protobuf.Timestamp created_at = 7;
+}
+
+message CreateProductRequest {
+  string name = 2;
+  string description = 3;
+  string picture = 4;
+  money.v1.Money price = 5;
+  repeated string categories = 6;
+}
+
+message CreateProductResponse {
+  string id = 1;
 }
 
 message ListProductsRequest {
