@@ -350,8 +350,6 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/demeero/shopagolic/services/go/bricks v0.0.0-20220723135328-32a222c3ddc4 h1:69apgh7OdtihQoUZAPJ6+HW6dlYfoDIL4wVXxDlYx8g=
 github.com/demeero/shopagolic/services/go/bricks v0.0.0-20220723135328-32a222c3ddc4/go.mod h1:O1z0eHJiH2EZrN5EYkYv59FACuMvcroZdiKxTGDtbqo=
-github.com/demeero/shopagolic/services/proto/gen/go v0.0.0-20220902164149-0813d6fda3ab h1:k/Lj3hcOfnCFVd+7prZu5D/4AGkFJj8hjXOas/BjCd0=
-github.com/demeero/shopagolic/services/proto/gen/go v0.0.0-20220902164149-0813d6fda3ab/go.mod h1:M/Y5vh57ZhJDmbD1ymC9mIkL3VdN+9CcGR3JVgjljSQ=
 github.com/demeero/shopagolic/services/proto/gen/go v0.0.0-20220902211930-9a7818b64255 h1:vLDiKapz2dJKlMQ/xqFxyAlTMeUU8Za3XcLhx+8YHjE=
 github.com/demeero/shopagolic/services/proto/gen/go v0.0.0-20220902211930-9a7818b64255/go.mod h1:M/Y5vh57ZhJDmbD1ymC9mIkL3VdN+9CcGR3JVgjljSQ=
 github.com/denisenkom/go-mssqldb v0.10.0/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=

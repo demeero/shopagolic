@@ -52,7 +52,7 @@ func (r *Loader) LoadByID(ctx context.Context, id string) (catalog.Product, erro
 	var doc productDoc
 	err = r.coll.FindOne(ctx, bson.M{"_id": docID}).Decode(&doc)
 	if errors.Is(err, mongo.ErrNoDocuments) {
-		return catalog.Product{}, catalog.ErrNotFound
+		return catalog.Product{}, fmt.Errorf("%w: %s", catalog.ErrNotFound, id)
 	}
 	if err != nil {
 		return catalog.Product{}, err

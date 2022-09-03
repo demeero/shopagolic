@@ -3,11 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
+
+var dbConnectTimeout = 30 * time.Second
 
 func mongoDBClient(cfg mongoCfg) (*mongo.Client, func(ctx context.Context) error, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbConnectTimeout)

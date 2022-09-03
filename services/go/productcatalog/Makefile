@@ -19,7 +19,7 @@ lint: ## Lint golang code
 
 .PHONY: test-app
 test-app:
-	docker compose -f docker-compose.test.yaml up -d --build --exit-code-from test
+	docker compose -f docker-compose.test.yaml up --build --exit-code-from test
 	docker compose -f docker-compose.test.yaml rm -svf
 
 .PHONY: migration

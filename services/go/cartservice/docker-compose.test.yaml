@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: test.Dockerfile
     environment:
-      - MONGO_URI=mongodb://test-mongo:27017
+      - REDIS_ADDR=test-redis:6379
       - GRPC_ADDR=test-app:8080
       - CGO_ENABLED=0
       - GOOS=linux
@@ -19,12 +19,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: test-shopagolic-productcatalog
+    container_name: test-shopagolic-cart
     environment:
-      - MONGO_URI=mongodb://test-mongo:27017
+      - REDIS_ADDR=test-redis:6379
     depends_on:
-      - test-mongo
+      - test-redis
 
-  test-mongo:
-    container_name: test-shopagolic-productcatalog-mongo
-    image: mongo
+  test-redis:
+    container_name: test-shopagolic-cart-redis
+    image: redis:7.0.4-alpine
