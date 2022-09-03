@@ -50,7 +50,7 @@ func (c *Product) CreateProduct(ctx context.Context, req *catalogpb.CreateProduc
 		Price:       convertProtoMoney(req.GetPrice()),
 		Categories:  req.GetCategories(),
 	})
-	if err = errHandler(ctx, err); err != nil {
+	if err := errHandler(ctx, err); err != nil {
 		return nil, err
 	}
 	return &catalogpb.CreateProductResponse{Id: id}, nil
@@ -62,7 +62,7 @@ func (c *Product) ListProducts(ctx context.Context, req *catalogpb.ListProductsR
 		PageSize:  uint16(req.GetPageSize()),
 	}
 	pList, err := c.loader.Load(ctx, pagination, sortKeyMapping[req.GetSortKey()], req.GetAsc())
-	if err = errHandler(ctx, err); err != nil {
+	if err := errHandler(ctx, err); err != nil {
 		return nil, err
 	}
 	return convertToListProductsResponse(pList), nil
@@ -70,7 +70,7 @@ func (c *Product) ListProducts(ctx context.Context, req *catalogpb.ListProductsR
 
 func (c *Product) GetProduct(ctx context.Context, req *catalogpb.GetProductRequest) (*catalogpb.GetProductResponse, error) {
 	p, err := c.loader.LoadByID(ctx, req.GetId())
-	if err = errHandler(ctx, err); err != nil {
+	if err := errHandler(ctx, err); err != nil {
 		return nil, err
 	}
 	return &catalogpb.GetProductResponse{Product: convertProduct(p)}, nil
@@ -78,7 +78,7 @@ func (c *Product) GetProduct(ctx context.Context, req *catalogpb.GetProductReque
 
 func (c *Product) SearchProducts(ctx context.Context, req *catalogpb.SearchProductsRequest) (*catalogpb.SearchProductsResponse, error) {
 	products, err := c.searcher.Search(ctx, req.GetQuery())
-	if err = errHandler(ctx, err); err != nil {
+	if err := errHandler(ctx, err); err != nil {
 		return nil, err
 	}
 	return &catalogpb.SearchProductsResponse{Products: convertProducts(products)}, nil
@@ -137,8 +137,6 @@ func errHandler(ctx context.Context, err error) error {
 	if errors.Is(err, catalog.ErrInvalidData) {
 		return status.Error(codes.InvalidArgument, err.Error())
 	}
-	if err != nil {
-		zaplogger.FromCtx(ctx).Error("failed handle request", zap.Error(err))
-	}
+	zaplogger.FromCtx(ctx).Error("failed handle request", zap.Error(err))
 	return err
 }

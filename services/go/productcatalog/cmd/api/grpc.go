@@ -25,19 +25,13 @@ func grpcServ(cfg grpcCfg, prodComponents rpc.ProductComponents, mclient *mongo.
 	interceptors := []grpc.UnaryServerInterceptor{
 		grpcrecovery.UnaryServerInterceptor(),
 		grpc_zap.UnaryServerInterceptor(zlog, grpc_zap.WithDecider(func(methodName string, err error) bool {
-			if methodName == healthGRPCMethodName {
-				return false
-			}
-			return true
+			return methodName != healthGRPCMethodName
 		})),
 		grpc_zap.PayloadUnaryServerInterceptor(zlog, func(_ context.Context, methodName string, _ interface{}) bool {
 			if !cfg.LogPayload {
 				return false
 			}
-			if methodName == healthGRPCMethodName {
-				return false
-			}
-			return true
+			return methodName != healthGRPCMethodName
 		}),
 		grpcZapLogCtxInterceptor(),
 	}

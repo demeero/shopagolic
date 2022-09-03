@@ -9,25 +9,25 @@ type Money struct {
 }
 
 type Product struct {
-	ID          string
+	CreatedAt   time.Time
 	Name        string
 	Description string
 	Picture     string
-	Price       Money
+	ID          string
 	Categories  []string
-	CreatedAt   time.Time
+	Price       Money
 }
 
 type ProductList struct {
+	NextTokenPage string
 	Page          []Product
 	Total         uint
-	NextTokenPage string
 }
 
 type CreateParams struct {
 	Name        string
 	Description string
 	Picture     string
-	Price       Money
 	Categories  []string
+	Price       Money
 }

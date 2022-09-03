@@ -3,8 +3,8 @@ package main
 import "time"
 
 type config struct {
-	GRPC    grpcCfg
 	Redis   rdsCfg
+	GRPC    grpcCfg
 	CartTTL time.Duration `default:"48h"`
 }
 

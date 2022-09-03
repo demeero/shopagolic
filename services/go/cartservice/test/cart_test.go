@@ -28,9 +28,9 @@ func TestIntegrationCart(t *testing.T) {
 type cartTestSuite struct {
 	suite.Suite
 	ctx        context.Context
-	keyPrefix  string
-	rds        *redis.Client
 	grpcClient cartpb.CartServiceClient
+	rds        *redis.Client
+	keyPrefix  string
 }
 
 func (ts *cartTestSuite) SetupSuite() {
@@ -69,8 +69,8 @@ func (ts *cartTestSuite) TestAddItem() {
 
 func (ts *cartTestSuite) TestAddItem_InvalidInput() {
 	tests := []struct {
-		name string
 		req  *cartpb.AddItemRequest
+		name string
 	}{
 		{
 			name: "empty user_id",
@@ -204,8 +204,8 @@ func (ts *cartTestSuite) TestEmptyCart_Error() {
 	ts.Require().NoError(err)
 
 	tests := []struct {
-		name            string
 		req             *cartpb.EmptyCartRequest
+		name            string
 		expectedErrCode codes.Code
 	}{
 		{

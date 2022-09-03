@@ -15,13 +15,13 @@ type moneyDoc struct {
 }
 
 type productDoc struct {
-	ID          primitive.ObjectID `bson:"_id"`
-	Name        string             `bson:"name"`
-	Description string             `bson:"description"`
-	Picture     string             `bson:"picture"`
-	Price       moneyDoc
-	Categories  []string  `bson:"categories"`
 	CreatedAt   time.Time `bson:"created_at"`
+	Name        string    `bson:"name"`
+	Description string    `bson:"description"`
+	Picture     string    `bson:"picture"`
+	Categories  []string  `bson:"categories"`
+	Price       moneyDoc
+	ID          primitive.ObjectID `bson:"_id"`
 }
 
 func newProductDoc(in catalog.CreateParams) productDoc {

@@ -5,7 +5,6 @@ import (
 	"errors"
 
 	"go.uber.org/zap"
-
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
@@ -67,9 +66,7 @@ func errHandler(ctx context.Context, err error) error {
 	if errors.Is(err, cart.ErrConflictData) {
 		return status.Error(codes.AlreadyExists, err.Error())
 	}
-	if err != nil {
-		zaplogger.FromCtx(ctx).Error("failed handle request", zap.Error(err))
-	}
+	zaplogger.FromCtx(ctx).Error("failed handle request", zap.Error(err))
 	return err
 }
 

@@ -49,7 +49,7 @@ func convertRedisCartItems(items map[string]string, zlog *zap.Logger) []cart.Ite
 	return cartItems
 }
 
-func convertRedisCartItem(productID string, quantity string, zlog *zap.Logger) cart.Item {
+func convertRedisCartItem(productID, quantity string, zlog *zap.Logger) cart.Item {
 	n, err := strconv.ParseInt(quantity, 10, 64)
 	if err != nil {
 		n = 0

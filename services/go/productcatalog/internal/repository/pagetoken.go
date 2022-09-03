@@ -15,8 +15,8 @@ func init() {
 }
 
 type pageToken struct {
-	ID      primitive.ObjectID
 	SortVal bson.RawValue
+	ID      primitive.ObjectID
 }
 
 func encodePageToken(doc bson.Raw, sortKey string) (string, error) {

@@ -1,8 +1,8 @@
 package main
 
 type config struct {
-	GRPC  grpcCfg
 	Mongo mongoCfg
+	GRPC  grpcCfg
 }
 
 type grpcCfg struct {
