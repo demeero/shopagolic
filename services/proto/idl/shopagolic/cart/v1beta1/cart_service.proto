@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package shopagolic.cart.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/cart/v1beta1";
+
+service CartService {
+  rpc AddItem(AddItemRequest) returns (AddItemResponse) {}
+  rpc GetCart(GetCartRequest) returns (GetCartResponse) {}
+  rpc EmptyCart(EmptyCartRequest) returns (EmptyCartResponse) {}
+}
+
+message CartItem {
+  string product_id = 1;
+  int32  quantity = 2;
+}
+
+message AddItemRequest {
+  string user_id = 1;
+  CartItem item = 2;
+}
+
+message AddItemResponse {}
+
+message EmptyCartRequest {
+  string user_id = 1;
+}
+
+message GetCartRequest {
+  string user_id = 1;
+}
+
+message GetCartResponse {
+  string user_id = 1;
+  repeated CartItem items = 2;
+}
+
+message EmptyCartResponse {}

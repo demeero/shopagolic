@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package shopagolic.cart.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/cart/v1beta1";
+
+service HealthService {
+  rpc Health(HealthRequest) returns (HealthResponse) {}
+}
+
+message HealthRequest {}
+
+message HealthResponse {}
