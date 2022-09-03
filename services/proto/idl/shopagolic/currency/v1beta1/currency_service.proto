@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package shopagolic.currency.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/currency/v1beta1";
+
+import "shopagolic/money/v1/money.proto";
+
+service CurrencyService {
+  rpc GetSupportedCurrencies(GetSupportedCurrenciesRequest) returns (GetSupportedCurrenciesResponse) {}
+  rpc Convert(ConvertRequest) returns (ConvertResponse) {}
+  rpc PutCurrency(PutCurrencyRequest) returns (PutCurrencyResponse) {}
+  rpc DeleteCurrency(DeleteCurrencyRequest) returns (DeleteCurrencyResponse) {}
+}
+
+message GetSupportedCurrenciesRequest {}
+
+message GetSupportedCurrenciesResponse {
+  // The 3-letter currency code defined in ISO 4217.
+  repeated string currency_codes = 1;
+}
+
+message ConvertRequest {
+  money.v1.Money from = 1;
+
+  // The 3-letter currency code defined in ISO 4217.
+  string to_code = 2;
+}
+
+message ConvertResponse {
+  money.v1.Money conversion_result = 1;
+}
+
+message PutCurrencyRequest {
+  string currency_code = 1;
+  float value = 2;
+}
+
+message PutCurrencyResponse {}
+
+message DeleteCurrencyRequest{
+  string currency_code = 1;
+}
+
+message DeleteCurrencyResponse{}
