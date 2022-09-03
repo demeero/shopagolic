@@ -1,0 +1,30 @@
+version: '3'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - GRPC_ADDR=app:8080
+      - CGO_ENABLED=0
+      - GOOS=linux
+      - GOARCH=amd64
+    depends_on:
+      - app
+    command: |
+      go test -count 1 -v ./test/...
+
+  test-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-shopagolic-productcatalog
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+    depends_on:
+      - mongo
+
+  test-mongo:
+    container_name: test-shopagolic-productcatalog-mongo
+    image: mongo

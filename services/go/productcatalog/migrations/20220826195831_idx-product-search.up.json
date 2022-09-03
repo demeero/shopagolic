@@ -1,0 +1,20 @@
+[
+  {
+    "createIndexes": "products",
+    "indexes": [
+      {
+        "key": {
+          "name": "text",
+          "description": "text",
+          "categories": "text"
+        },
+        "weights": {
+          "name": 10,
+          "description": 8,
+          "categories": 5
+        },
+        "name": "product-search-idx"
+      }
+    ]
+  }
+]
