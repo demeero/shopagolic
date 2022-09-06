@@ -4,5 +4,6 @@ use (
 	./bricks
 	./productcatalog
 	./cartservice
+	./currencyservice
 	./../proto/gen/go
 )

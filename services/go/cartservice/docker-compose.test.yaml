@@ -21,6 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: test-shopagolic-cart
     environment:
+      - LOG_LEVEL=ERROR
       - REDIS_ADDR=test-redis:6379
     depends_on:
       - test-redis
@@ -28,3 +29,4 @@ services:
   test-redis:
     container_name: test-shopagolic-cart-redis
     image: redis:7.0.4-alpine
+    command: redis-server --loglevel warning

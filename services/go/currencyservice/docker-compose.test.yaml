@@ -5,7 +5,8 @@ services:
       context: .
       dockerfile: test.Dockerfile
     environment:
-      - MONGO_URI=mongodb://test-mongo:27017
+      - LOG_LEVEL=ERROR
+      - REDIS_ADDR=test-redis:6379
       - GRPC_ADDR=test-app:8080
       - CGO_ENABLED=0
       - GOOS=linux
@@ -19,14 +20,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: test-shopagolic-productcatalog
+    container_name: test-shopagolic-currency
     environment:
-      - LOG_LEVEL=ERROR
-      - MONGO_URI=mongodb://test-mongo:27017
+      - REDIS_ADDR=test-redis:6379
+      - INIT_CURRENCIES_IF_EMPTY=false
     depends_on:
-      - test-mongo
+      - test-redis
 
-  test-mongo:
-    container_name: test-shopagolic-productcatalog-mongo
-    image: mongo
-    command: --quiet
+  test-redis:
+    container_name: test-shopagolic-currency-redis
+    image: redis:7.0.4-alpine
+    command: redis-server --loglevel warning

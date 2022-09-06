@@ -47,7 +47,7 @@ func (ts *cartTestSuite) TearDownSuite() {
 }
 
 func (ts *cartTestSuite) TearDownTest() {
-	ts.Require().NoError(ts.rds.FlushAll(context.Background()).Err())
+	ts.Require().NoError(ts.rds.FlushAll(ts.ctx).Err())
 }
 
 func (ts *cartTestSuite) TestAddItem() {

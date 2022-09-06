@@ -1,0 +1,169 @@
+linters-settings:
+  gosec:
+    excludes:
+      - G108
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  gosimple:
+    go: "1.17"
+    checks: [ "all" ]
+  staticcheck:
+    go: "1.17"
+    checks: [ "all" ]
+  unused:
+    go: "1.17"
+  cyclop:
+    max-complexity: 10
+    package-average: 6.5
+    skip-tests: true
+  errorlint:
+    errorf: true
+    asserts: true
+    comparison: true
+  forbidigo:
+    forbid:
+      - ^print.*$
+      - 'fmt\.Print.*'
+  funlen:
+    lines: 155
+    statements: 85
+  gocognit:
+    min-complexity: 20
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+    ignore-tests: true
+  gocritic:
+    settings:
+      rangeValCopy:
+        sizeThreshold: 500
+      hugeParam:
+        sizeThreshold: 600
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+    disabled-checks:
+      - regexpMust
+      - commentedOutCode
+  gocyclo:
+    min-complexity: 10
+  govet:
+    disable:
+      - composites
+      - shadow
+    enable:
+      - asmdecl
+      - assign
+      - atomic
+      - atomicalign
+      - bools
+      - buildtag
+      - cgocall
+      - copylocks
+      - deepequalerrors
+      - errorsas
+      - fieldalignment
+      - findcall
+      - framepointer
+      - httpresponse
+      - ifaceassert
+      - loopclosure
+      - lostcancel
+      - nilfunc
+      - nilness
+      - printf
+      - reflectvaluecompare
+      - shift
+      - sigchanyzer
+      - sortslice
+      - stdmethods
+      - stringintconv
+      - structtag
+      - testinggoroutine
+      - tests
+      - unmarshal
+      - unreachable
+      - unsafeptr
+      - unusedresult
+      - unusedwrite
+  stylecheck:
+    go: "1.17"
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  lll:
+    line-length: 200
+  nestif:
+    min-complexity: 5
+  rowserrcheck:
+    packages:
+      - github.com/jmoiron/sqlx
+  tenv:
+    all: true
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode # Finds unused code (by default)
+    - errcheck # Errcheck is a program for checking for unchecked errors in go programs. These unchecked errors can be critical bugs in some cases (by default)
+    - gosimple # Linter for Go source code that specializes in simplifying a code. (by default)
+    - govet # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string (by default)
+    - ineffassign # Detects when assignments to existing variables are not used (by default)
+    - staticcheck # Staticcheck is a go vet on steroids, applying a ton of static analysis checks (by default)
+    - structcheck # Finds unused struct fields (by default)
+    - typecheck # Like the front-end of a Go compiler, parses and type-checks Go code (by default)
+    - unused # Checks Go code for unused constants, variables, functions and types (by default)
+    - varcheck # Finds unused global variables and constants (by default)
+    - asciicheck # Simple linter to check that your code does not contain non-ASCII identifiers
+    - bidichk # Checks for dangerous unicode character sequences
+    - bodyclose # checks whether HTTP response body is closed successfully
+    - contextcheck # check the function whether use a non-inherited context
+    - cyclop # checks function and package cyclomatic complexity
+    - dogsled # Checks assignments with too many blank identifiers (e.g. x, , , _, := f())
+    - dupl # Tool for code clone detection
+    - durationcheck # check for two durations multiplied together (https://github.com/charithe/durationcheck)
+    - errname # Checks that sentinel errors are prefixed with the Err and error types are suffixed with the Error. Official Go wiki: https://github.com/golang/go/wiki/Errors#naming Error types end in "Error" and error variables start with "Err" or "err"
+    - errorlint # errorlint is a linter for that can be used to find code that will cause problems with the error wrapping scheme introduced in Go 1.13.
+    - exportloopref # checks for pointers to enclosing loop variables (https://github.com/kyoh86/exportloopref)
+    - forbidigo # Forbids identifiers like ^fmt\.Print.*$ , print, etc
+    - forcetypeassert # finds forced type assertions (_ = a.(int) // type assertion must be checked)
+    - funlen # Tool for detection of long functions
+    - gocognit # Computes and checks the cognitive complexity of functions. A measurement of how hard does the code is intuitively to understand. (https://github.com/uudashr/gocognit)
+    - goconst # Finds repeated strings that could be replaced by a constant
+    - gocritic # Provides diagnostics that check for bugs, performance and style issues.
+    - godot # Check if comments end in a period. CodeReviewComments quote (https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences): Comments should begin with the name of the thing being described and end in a period
+    - gofmt # Gofmt checks whether code was gofmt-ed.
+    - goimports # In addition to fixing imports, goimports also formats your code in the same style as gofmt.
+    - gocyclo # Computes and checks the cyclomatic complexity of functions
+    - gosec # Inspects source code for security problems. (https://github.com/securego/gosec)
+    - misspell # Finds commonly misspelled English words in comments
+    - nolintlint # Reports ill-formed or insufficient nolint directives https://github.com/golangci/golangci-lint/blob/master/pkg/golinters/nolintlint/README.md
+    - nakedret # Finds naked returns in functions greater than a specified function length (https://github.com/golang/go/wiki/CodeReviewComments#named-result-parameters)
+    - prealloc # Finds slice declarations that could potentially be preallocated
+    - predeclared # find code that shadows one of Go's predeclared identifiers
+    - revive # Fast, configurable, extensible, flexible, and beautiful linter for Go. Drop-in replacement of golint.
+    - stylecheck # Stylecheck is a replacement for golint
+    - thelper # thelper detects golang test helpers without t.Helper() call and checks the consistency of test helpers (https://github.com/kulti/thelper)
+    - tparallel # tparallel detects inappropriate usage of t.Parallel() method in your Go test codes
+    - unconvert # Remove unnecessary type conversions
+    - unparam # Reports unused function parameters
+    - whitespace # Tool for detection of leading and trailing whitespace
+    - goprintffuncname # Checks that printf-like functions are named with f at the end
+    - ifshort # Checks that your code uses short syntax for if-statements whenever possible
+    - lll # Reports long lines
+    - makezero # Finds slice declarations with non-zero initial length (https://github.com/ashanbrown/makezero)
+    - nestif # Reports deeply nested if statements
+    - noctx # noctx finds sending http request without context.Context
+    - promlinter # Check Prometheus metrics naming via promlint
+    - rowserrcheck # checks whether Err of rows is checked successfully
+    - sqlclosecheck # Checks that sql.Rows and sql.Stmt are closed.
+    - tenv # tenv is analyzer that detects using os.Setenv instead of t.Setenv since Go1.17
+    - wastedassign # wastedassign finds wasted assignment statements. (https://github.com/sanposhiho/wastedassign)
+#    - wrapcheck # Checks that errors returned from external packages are wrapped (https://github.com/tomarrell/wrapcheck)
+
+run:
+  issues-exit-code: 1
