@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: shopagolic/productcatalog/v1beta1/health_service.proto
+// source: shopagolic/recommendation/v1beta1/health_service.proto
 
 package v1beta1
 
@@ -29,7 +29,7 @@ type HealthRequest struct {
 func (x *HealthRequest) Reset() {
 	*x = HealthRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[0]
+		mi := &file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -42,7 +42,7 @@ func (x *HealthRequest) String() string {
 func (*HealthRequest) ProtoMessage() {}
 
 func (x *HealthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[0]
+	mi := &file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *HealthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthRequest.ProtoReflect.Descriptor instead.
 func (*HealthRequest) Descriptor() ([]byte, []int) {
-	return file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescGZIP(), []int{0}
+	return file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescGZIP(), []int{0}
 }
 
 type HealthResponse struct {
@@ -67,7 +67,7 @@ type HealthResponse struct {
 func (x *HealthResponse) Reset() {
 	*x = HealthResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[1]
+		mi := &file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -80,7 +80,7 @@ func (x *HealthResponse) String() string {
 func (*HealthResponse) ProtoMessage() {}
 
 func (x *HealthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[1]
+	mi := &file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,57 +93,57 @@ func (x *HealthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthResponse.ProtoReflect.Descriptor instead.
 func (*HealthResponse) Descriptor() ([]byte, []int) {
-	return file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescGZIP(), []int{1}
+	return file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescGZIP(), []int{1}
 }
 
-var File_shopagolic_productcatalog_v1beta1_health_service_proto protoreflect.FileDescriptor
+var File_shopagolic_recommendation_v1beta1_health_service_proto protoreflect.FileDescriptor
 
-var file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDesc = []byte{
-	0x0a, 0x36, 0x73, 0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2f, 0x70, 0x72, 0x6f,
-	0x64, 0x75, 0x63, 0x74, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x2f, 0x76, 0x31, 0x62, 0x65,
+var file_shopagolic_recommendation_v1beta1_health_service_proto_rawDesc = []byte{
+	0x0a, 0x36, 0x73, 0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2f, 0x72, 0x65, 0x63,
+	0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2f, 0x76, 0x31, 0x62, 0x65,
 	0x74, 0x61, 0x31, 0x2f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x21, 0x73, 0x68, 0x6f, 0x70, 0x61, 0x67,
-	0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x63, 0x61, 0x74, 0x61,
-	0x6c, 0x6f, 0x67, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x22, 0x0f, 0x0a, 0x0d, 0x48,
+	0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x22, 0x0f, 0x0a, 0x0d, 0x48,
 	0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x10, 0x0a, 0x0e,
 	0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x80,
 	0x01, 0x0a, 0x0d, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x12, 0x6f, 0x0a, 0x06, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x12, 0x30, 0x2e, 0x73, 0x68, 0x6f,
-	0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x63,
-	0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x48,
+	0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e,
+	0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x48,
 	0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x31, 0x2e, 0x73,
-	0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63,
-	0x74, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31,
+	0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f, 0x6c, 0x69, 0x63, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x6d, 0x6d,
+	0x65, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31,
 	0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
 	0x00, 0x42, 0x57, 0x5a, 0x55, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
 	0x64, 0x65, 0x6d, 0x65, 0x65, 0x72, 0x6f, 0x2f, 0x73, 0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f, 0x6c,
 	0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2f, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x68, 0x6f, 0x70, 0x61, 0x67, 0x6f,
-	0x6c, 0x69, 0x63, 0x2f, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x63, 0x61, 0x74, 0x61, 0x6c,
-	0x6f, 0x67, 0x2f, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6c, 0x69, 0x63, 0x2f, 0x72, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x2f, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x33,
 }
 
 var (
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescOnce sync.Once
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescData = file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDesc
+	file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescOnce sync.Once
+	file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescData = file_shopagolic_recommendation_v1beta1_health_service_proto_rawDesc
 )
 
-func file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescGZIP() []byte {
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescOnce.Do(func() {
-		file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescData = protoimpl.X.CompressGZIP(file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescData)
+func file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescGZIP() []byte {
+	file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescOnce.Do(func() {
+		file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescData = protoimpl.X.CompressGZIP(file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescData)
 	})
-	return file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDescData
+	return file_shopagolic_recommendation_v1beta1_health_service_proto_rawDescData
 }
 
-var file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_shopagolic_productcatalog_v1beta1_health_service_proto_goTypes = []interface{}{
-	(*HealthRequest)(nil),  // 0: shopagolic.productcatalog.v1beta1.HealthRequest
-	(*HealthResponse)(nil), // 1: shopagolic.productcatalog.v1beta1.HealthResponse
+var file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_shopagolic_recommendation_v1beta1_health_service_proto_goTypes = []interface{}{
+	(*HealthRequest)(nil),  // 0: shopagolic.recommendation.v1beta1.HealthRequest
+	(*HealthResponse)(nil), // 1: shopagolic.recommendation.v1beta1.HealthResponse
 }
-var file_shopagolic_productcatalog_v1beta1_health_service_proto_depIdxs = []int32{
-	0, // 0: shopagolic.productcatalog.v1beta1.HealthService.Health:input_type -> shopagolic.productcatalog.v1beta1.HealthRequest
-	1, // 1: shopagolic.productcatalog.v1beta1.HealthService.Health:output_type -> shopagolic.productcatalog.v1beta1.HealthResponse
+var file_shopagolic_recommendation_v1beta1_health_service_proto_depIdxs = []int32{
+	0, // 0: shopagolic.recommendation.v1beta1.HealthService.Health:input_type -> shopagolic.recommendation.v1beta1.HealthRequest
+	1, // 1: shopagolic.recommendation.v1beta1.HealthService.Health:output_type -> shopagolic.recommendation.v1beta1.HealthResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -151,13 +151,13 @@ var file_shopagolic_productcatalog_v1beta1_health_service_proto_depIdxs = []int3
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_shopagolic_productcatalog_v1beta1_health_service_proto_init() }
-func file_shopagolic_productcatalog_v1beta1_health_service_proto_init() {
-	if File_shopagolic_productcatalog_v1beta1_health_service_proto != nil {
+func init() { file_shopagolic_recommendation_v1beta1_health_service_proto_init() }
+func file_shopagolic_recommendation_v1beta1_health_service_proto_init() {
+	if File_shopagolic_recommendation_v1beta1_health_service_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HealthRequest); i {
 			case 0:
 				return &v.state
@@ -169,7 +169,7 @@ func file_shopagolic_productcatalog_v1beta1_health_service_proto_init() {
 				return nil
 			}
 		}
-		file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HealthResponse); i {
 			case 0:
 				return &v.state
@@ -186,18 +186,18 @@ func file_shopagolic_productcatalog_v1beta1_health_service_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDesc,
+			RawDescriptor: file_shopagolic_recommendation_v1beta1_health_service_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_shopagolic_productcatalog_v1beta1_health_service_proto_goTypes,
-		DependencyIndexes: file_shopagolic_productcatalog_v1beta1_health_service_proto_depIdxs,
-		MessageInfos:      file_shopagolic_productcatalog_v1beta1_health_service_proto_msgTypes,
+		GoTypes:           file_shopagolic_recommendation_v1beta1_health_service_proto_goTypes,
+		DependencyIndexes: file_shopagolic_recommendation_v1beta1_health_service_proto_depIdxs,
+		MessageInfos:      file_shopagolic_recommendation_v1beta1_health_service_proto_msgTypes,
 	}.Build()
-	File_shopagolic_productcatalog_v1beta1_health_service_proto = out.File
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_rawDesc = nil
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_goTypes = nil
-	file_shopagolic_productcatalog_v1beta1_health_service_proto_depIdxs = nil
+	File_shopagolic_recommendation_v1beta1_health_service_proto = out.File
+	file_shopagolic_recommendation_v1beta1_health_service_proto_rawDesc = nil
+	file_shopagolic_recommendation_v1beta1_health_service_proto_goTypes = nil
+	file_shopagolic_recommendation_v1beta1_health_service_proto_depIdxs = nil
 }

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package shopagolic.recommendation.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/recommendation/v1beta1";
+
+import "google/protobuf/timestamp.proto";
+
+service RecommendationService {
+  rpc GetRecommendation(GetRecommendationRequest) returns (GetRecommendationResponse) {}
+}
+
+message GetRecommendationRequest {
+  string product_id = 1;
+  int32 limit = 2;
+}
+
+message GetRecommendationResponse {
+  repeated string product_ids = 1;
+}
