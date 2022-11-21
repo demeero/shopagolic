@@ -1,0 +1,105 @@
+[
+  {
+    "id": "1",
+    "name": "p1",
+    "description": "p1 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 1
+    },
+    "categories": [
+      "accessories",
+      "clothing"
+    ],
+    "created_at": {
+      "seconds": 1640998861
+    }
+  },
+  {
+    "id": "2",
+    "name": "p2",
+    "description": "p2 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 2
+    },
+    "categories": [
+      "footwear",
+      "clothing"
+    ],
+    "created_at": {
+      "seconds": 1609462861
+    }
+  },
+  {
+    "id": "3",
+    "name": "p3",
+    "description": "p3 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 3
+    },
+    "categories": [
+      "footwear",
+      "beauty"
+    ],
+    "created_at": {
+      "seconds": 1577840461
+    }
+  },
+  {
+    "id": "4",
+    "name": "p4",
+    "description": "p4 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 4
+    },
+    "categories": [
+      "hair",
+      "beauty"
+    ],
+    "created_at": {
+      "seconds": 1546304461
+    }
+  },
+  {
+    "id": "5",
+    "name": "p5",
+    "description": "p5 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 5
+    },
+    "categories": [
+      "hair",
+      "decor"
+    ],
+    "created_at": {
+      "seconds": 1514768461
+    }
+  },
+  {
+    "id": "6",
+    "name": "p6",
+    "description": "p6 desc",
+    "picture": "https://picsum.photos/640/480",
+    "price": {
+      "currency_code": "USD",
+      "units": 6
+    },
+    "categories": [
+      "home",
+      "decor",
+      "kitchen"
+    ],
+    "created_at": {
+      "seconds": 1483232461
+    }
+  }
+]

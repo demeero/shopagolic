@@ -6,5 +6,6 @@ use (
 	./cartservice
 	./currencyservice
 	./shippingservice
+	./recommendationserivce
 	./../proto/gen/go
 )

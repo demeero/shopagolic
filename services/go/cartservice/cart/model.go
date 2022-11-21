@@ -1,11 +1,11 @@
 package cart
 
 type Cart struct {
-	UserID string
 	Items  []Item
+	UserID string
 }
 
 type Item struct {
-	ProductID string
 	Quantity  uint16
+	ProductID string
 }
