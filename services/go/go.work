@@ -8,5 +8,6 @@ use (
 	./shippingservice
 	./recommendationserivce
 	./paymentservice
+	./emailservice
 	./../proto/gen/go
 )

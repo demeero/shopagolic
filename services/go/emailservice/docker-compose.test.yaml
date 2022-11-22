@@ -1,0 +1,23 @@
+version: '3'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    environment:
+      - GRPC_ADDR=test-app:8080
+      - CGO_ENABLED=0
+      - GOOS=linux
+      - GOARCH=amd64
+    depends_on:
+      - test-app
+    command: |
+      go test -count 1 -v ./test/...
+
+  test-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-shopagolic-email
+    environment:
+      - LOG_LEVEL=ERROR

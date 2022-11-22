@@ -6,7 +6,6 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/demeero/shopagolic/paymentservice/payment"
 	"github.com/demeero/shopagolic/services/go/bricks/zaplogger"
 	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
@@ -28,7 +27,7 @@ func main() {
 			log.Printf("failed to sync zap logger: %v", err)
 		}
 	}()
-	zlog = zlog.With(zap.String("service_name", "payment"))
+	zlog = zlog.With(zap.String("service_name", "email"))
 
 	cfg := config{}
 	if err := envconfig.Process("", &cfg); err != nil {
@@ -37,7 +36,7 @@ func main() {
 
 	zlog.Info("configuration initialized")
 
-	grpcStopFunc := grpcServ(cfg.GRPC, payment.NewCharger(), zlog)
+	grpcStopFunc := grpcServ(cfg.GRPC, zlog)
 	zlog.Info("GRPC server established")
 
 	interruptChan := make(chan os.Signal, 1)

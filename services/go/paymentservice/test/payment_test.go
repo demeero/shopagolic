@@ -15,27 +15,27 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func TestIntegrationRecommendation(t *testing.T) {
+func TestIntegrationPayment(t *testing.T) {
 	if testing.Short() {
 		t.Skip()
 	}
-	suite.Run(t, &recommendationTestSuite{})
+	suite.Run(t, &paymentTestSuite{})
 }
 
-type recommendationTestSuite struct {
+type paymentTestSuite struct {
 	suite.Suite
 	ctx        context.Context
 	grpcClient paymentpb.PaymentServiceClient
 }
 
-func (ts *recommendationTestSuite) SetupSuite() {
+func (ts *paymentTestSuite) SetupSuite() {
 	ts.ctx = context.Background()
 	c := getConfig(ts.T())
 	ts.T().Logf("payment test config: %+v", c)
 	ts.grpcClient = paymentGRPCClient(ts.T())
 }
 
-func (ts *recommendationTestSuite) TestCharge() {
+func (ts *paymentTestSuite) TestCharge() {
 	tests := []struct {
 		name string
 		req  *paymentpb.ChargeRequest
@@ -98,7 +98,7 @@ func (ts *recommendationTestSuite) TestCharge() {
 	}
 }
 
-func (ts *recommendationTestSuite) TestCharge_InvalidArgErr() {
+func (ts *paymentTestSuite) TestCharge_InvalidArgErr() {
 	tests := []struct {
 		name string
 		req  *paymentpb.ChargeRequest
