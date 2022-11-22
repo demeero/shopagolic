@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package shopagolic.payment.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/payment/v1beta1";
+
+import "google/protobuf/timestamp.proto";
+import "shopagolic/money/v1/money.proto";
+
+service PaymentService {
+  rpc Charge(ChargeRequest) returns (ChargeResponse) {}
+}
+
+message CreditCardInfo {
+  string number = 1;
+  int32 cvv = 2;
+  int32 expiration_year = 3;
+  int32 expiration_month = 4;
+}
+
+message ChargeRequest {
+  money.v1.Money amount = 1;
+  CreditCardInfo credit_card = 2;
+}
+
+message ChargeResponse {
+  string transaction_id = 1;
+}
