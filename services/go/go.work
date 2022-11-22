@@ -7,5 +7,6 @@ use (
 	./currencyservice
 	./shippingservice
 	./recommendationserivce
+	./paymentservice
 	./../proto/gen/go
 )
