@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package shopagolic.checkout.v1beta1;
+
+option go_package = "github.com/demeero/shopagolic/services/proto/gen/go/shopagolic/checkout/v1beta1";
+
+import "shopagolic/money/v1/money.proto";
+
+service CheckoutService {
+  rpc Checkout(CheckoutRequest) returns (CheckoutResponse) {}
+}
+
+message Address {
+  string street_address = 1;
+  string city = 2;
+  string state = 3;
+  string country = 4;
+  int32 zip_code = 5;
+}
+
+message CreditCardInfo {
+  string credit_card_number = 1;
+  int32 credit_card_cvv = 2;
+  int32 credit_card_expiration_year = 3;
+  int32 credit_card_expiration_month = 4;
+}
+
+message OrderItem {
+  string product_id = 1;
+  int32  quantity = 2;
+  money.v1.Money cost = 3;
+}
+
+message OrderResult {
+  string   order_id = 1;
+  string   shipping_tracking_id = 2;
+  money.v1.Money shipping_cost = 3;
+  Address  shipping_address = 4;
+  repeated OrderItem items = 5;
+}
+
+message CheckoutRequest {
+  string user_id = 1;
+  string user_currency = 2;
+
+  Address address = 3;
+  string email = 5;
+  CreditCardInfo credit_card = 6;
+}
+
+message CheckoutResponse {
+  OrderResult order = 1;
+}
+
+message CartItem {
+  string product_id = 1;
+  int32  quantity = 2;
+}
